@@ -1,5 +1,4 @@
 # **Optimized Macro.cfg &amp; printer.cfg & Orca Start G-Code for stock Sovol SV08**
-<br />
 
 ## **HOW HARD IS IT TO IMPLEMENT?**
 
