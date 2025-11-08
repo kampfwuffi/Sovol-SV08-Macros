@@ -9,28 +9,29 @@ Do STEP 1 TO STEP 5 for best experience.
 
 **ATTENTION:**
 
-Stock Sovol hardware required (with 0.6mm  nozzle). For  0.4mm nozzle minor code adjustment needed in printer.cfg. See below on the end of this article.
-If you are using a 12V fan replacement for the mainboard with a buck converter, then be sure the fan spins up again after shutting off when temperature is low / idle. 
-Stock Sovol SV08 Firmware 2.4.6, this might not work with older and newer firmware in the future!
-You will have to use all files / settings together for optimal function ( Orca machine G-Code (!) / printer.cfg (Mainsail Klipper) / Macro.cfg (Mainsail Klipper)
-You will have to paste your serial number to the config.cfg file! See printer.cfg section! Do not forget!
-Do not implement if you don't know what you are doing (knowledge about parameters in Klipper configs, how to troubleshoot,…. required)
-Make backups of your current settings / configs!
-This may work with PLA too. You have to change temp settings to PLA temps in Macro.cfg (temperature values in [gcode_macro _global_var])
-You will have to uncomment some gcode options if hardware installed (like Neopixel Nozzle LED, chamber fan ...) -> Search for "uncomment" to see and unlock the options. It is already preconfigured but not active.
-For PETG prints use the smooth side of the PEI plate. PETG sticks too much on coarse side.
-I recommend to upgrade your SV08 with this mod too, to avoid nozzle cleaning blobs and other residuals getting into the Z-belt mechanics: https://www.printables.com/model/1257347-sovol-sv08-z-belt-cover
-To fix your bed (TACO SHAPE) do this fix: https://www.printables.com/model/1073040-sovol-sv08-taco-bed-fix
+- Stock Sovol hardware required (with 0.6mm  nozzle). For  0.4mm nozzle minor code adjustment needed in printer.cfg. See below on the end of this article.
+- Stock Sovol SV08 Firmware 2.4.6, this might not work with older and newer firmware in the future!
+- You will have to use all files / settings together for optimal function ( Orca machine G-Code (!) / printer.cfg (Mainsail Klipper) / Macro.cfg (Mainsail Klipper)
+- You will have to paste your serial number to the config.cfg file! See printer.cfg section! Do not forget!
+- Do not implement if you don't know what you are doing (knowledge about parameters in Klipper configs, how to troubleshoot,…. required)
+- Make backups of your current settings / configs!
+- This may work with PLA too. You have to change temp settings to PLA temps in Macro.cfg (temperature values in [gcode_macro _global_var])
+- You will have to uncomment some gcode options if hardware installed (like Neopixel Nozzle LED, chamber fan ...) -> Search for "uncomment" to see and unlock the options. It is already preconfigured but not active.
+- For PETG prints use the smooth side of the PEI plate. PETG sticks too much on coarse side.
+- I recommend to upgrade your SV08 with this mod too, to avoid nozzle cleaning blobs and other residuals getting into the Z-belt mechanics: https://www.printables.com/model/1257347-sovol-sv08-z-belt-cover
+- To fix your bed (TACO SHAPE) do this fix: https://www.printables.com/model/1073040-sovol-sv08-taco-bed-fix
 Heat soaking and other voodoo is no solution, this taco bed fix (metal spacers in the center between bed and printer base plate) eliminates the root cause for bad first layers.
-Use at own risk, this is WORK IN PROGRESS.
-OPTIMIZATIONS Changelog (firmware 2.4.6 required!):
+- If you are using a 12V fan replacement for the mainboard with a buck converter, then be sure the fan spins up again after shutting off when temperature is low / idle.
+- Use at own risk, this is WORK IN PROGRESS.
+
+**OPTIMIZATIONS Changelog (firmware 2.4.6 required!):**
 
 Full changelog with previous versions see download section
 
 Version 20 (08.Nov.2025)
--Fixed a bug in printer.cfg. Please check code with original cfg files to avoid bugs.
+- Fixed a bug in printer.cfg. Please check code with original cfg files to avoid bugs.
 
-STEP 1: ORCA SETTINGS G-Code:
+**STEP 1: ORCA SETTINGS G-Code:**
 Must be used with optimized printer.cfg and Macro.cfg for correct print start (no purge line and blob on bed) and avoid bed scratching in certain cases!
 
 Orca Machine start G-Code:
@@ -54,7 +55,7 @@ M83; set extruder relative
 M400; wait until finished
 ```
 
-STEP 2: New code for Klipper  (Macro.cfg & printer.cfg)
+**STEP 2: New code for Klipper  (Macro.cfg & printer.cfg)**
 
 Attention: Be sure to have backups of original Macro.cfg and printer.cfg with your serial numbers!
 
@@ -81,7 +82,7 @@ paste over old code in Orca Device Tab -> Machine -> printer.cfg (Save & Reboot)
 
 Be sure the tabs stops are still  inserted in section  [quad_gantry_level] coordinates.
 
-ATTENTION:
+**ATTENTION:**
 
 YOU MUST PASTE YOUR PRINTER/KLIPPER SERIAL IN FOLLOWING SECTIONS:
 [mcu] # NEED YOUR SERIAL PASTED HERE
@@ -137,7 +138,7 @@ IF YOU WANT TO KEEP YOUR OLD Z-OFFSET AND BED MESH VALUES THEN LEAVE YOUR ORIGIN
 
 There is a Settings Override Tab in Orca: Set Retraction also to 0.6mm there or you will get small holes in your print surface from time to time!
 
-STEP 4: DO CALIBRATIONS: 
+**STEP 4: DO CALIBRATIONS: **
 
 Reboot machine
 Set 0,4mm nozzle in printer.cfg and Orca Slicer if no 0,6mm nozzle installed
@@ -152,11 +153,11 @@ Auto-Calibrate (= Input Shaping Menu in LCD display) - Important
 Belt Test - Important
 The individual printer calibration settings will be stored in modified printer.cfg (section SAVE_CONFIG)
 
-STEP 5: Test printer and all fans in Mainsail with sliders, e.g. calibrationline test print, Extreme Test_UPDATED….
+**STEP 5: Test printer and all fans in Mainsail with sliders, e.g. test prints,….**
 
 ==============================
 
-Why 0.6mm nozzle and PETG as filament?
+**Why 0.6mm nozzle and PETG as filament?**
 
 - I installed the new Sovol upgrade nozzle with 0.6mm diameter for even faster prints and more reliability (no clogging). The maximum volumetric flow increased from 15mm3/s to 26mm3/s with PETG! It's possible with Sovol SV08.
 Orca slicer can compensate bigger nozzles with quality settings magic (Adaptive layer height button, Smooth button, fuzzy skin, ....), except very fine details.
@@ -167,17 +168,17 @@ Therefore these settings are optimized for PETG and 0.6mm nozzle, but it can be 
 
 ==============================
 
-OPTIONAL for 0.4mm nozzle:
+**OPTIONAL for 0.4mm nozzle:**
 
 (It is not recommended to print PETG with standard 0,4mm non-upgrade Sovol nozzle without the nozzle screw! It may damage your bed and toolhead! Replace with upgrade nozzle or 3rd party upgrade by e.g. Microswiss)
 
 Use your own 0.4mm Orca presets except modify Orca machine G-Code and set nozzle to 0.4mm in Extruder 1 tab (Nozzle diameter: 0.6 mm).
 In Addition change this line in printer.cfg:
-
+```
 nozzle_diameter: 0.600 # 0.400 MOD for 0.6mm nozzle install
-
+```
 to
-
+```
 nozzle_diameter: 0.400
-
+```
 =============================
