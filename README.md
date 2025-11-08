@@ -1,5 +1,4 @@
-# Sovol-SV08-Macros
-## **Optimized Macro.cfg &amp; printer.cfg / Orca G-Code &amp; Settings for stock Sovol SV08**
+# **Optimized Macro.cfg &amp; printer.cfg / Orca G-Code &amp; Settings for stock Sovol SV08**
 <br />
 
 **HOW HARD IS IT TO IMPLEMENT?**
