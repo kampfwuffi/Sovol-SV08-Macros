@@ -28,8 +28,10 @@ Heat soaking and other voodoo is no solution, this taco bed fix (metal spacers i
 >- For PETG prints use the smooth side of the PEI plate. PETG sticks too much on coarse side.
 
 
-## **STEP 1: ORCA SETTINGS G-Code:**
+## **STEP 1: ORCA SETTINGS Machine start G-Code:**
 Must be used with optimized printer.cfg and Macro.cfg for correct print start (no purge line and blob on bed) and avoid bed scratching in certain cases!
+
+![orca-sv08-05](https://github.com/user-attachments/assets/b10c8d2d-a692-484f-8605-8b003a712715)
 
 **Orca Machine start G-Code:**
 ```
@@ -58,6 +60,8 @@ M400; wait until finished
 > Be sure to have backups of original _Macro.cfg_ and _printer.cfg_ with your serial numbers!
 >
 >You can compare your original code with this new code here to see all changes (paste original code in left column, new code in right column): https://editor.mergely.com
+
+![image](https://github.com/user-attachments/assets/1e5203da-f2d1-4e84-8955-61d4c20563f6)
 
 ### **Macro.cfg**
 
