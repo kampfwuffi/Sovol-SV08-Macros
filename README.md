@@ -25,31 +25,17 @@
 >- Optionally uncomment some gcode options if hardware installed (like Neopixel Nozzle LED, chamber fan, etc) -> Search for _"uncomment"_ in gcode to see and unlock the options. It is already preconfigured but not active.
 
 
-## **STEP 1: (ORCA) SLICER SETTINGS Machine start G-Code:**
+## **STEP 1: (ORCA) SLICER SETTING - Machine start G-Code in printer profile:**
 Must be used with optimized _printer.cfg_ and _Macro.cfg_ for correct print start (no purge line and poop blob on bed) and avoid bed scratching in certain cases!
 
 ![orca-sv08-05](https://github.com/user-attachments/assets/b10c8d2d-a692-484f-8605-8b003a712715)
 
 **Orca Machine start G-Code:**
 ```
-START_PRINT
-G90; Absolute positioning
-G1 Z3.5 F400; move safe z-height
-G1 X0 Y0 F3000; move to zero position
-G1 Z0.0 F400; preheat nozzle sealed on plate
-M104 S[nozzle_temperature_initial_layer]; set extruder temp
-M190 S[bed_temperature_initial_layer_single]; wait for bed temp
-M109 S[nozzle_temperature_initial_layer]; wait for extruder temp
-G1 Z0.3 F400; add nozzle height adjust
-M400; wait finshed
-G1 Y4.0 F7000; wipe
-M400; wait finshed
-G1 Z0.5 F600; add nozzle raise
-M400; wait finshed
-G91; set position relative
-M83; set extruder relative
-M400; wait until finished
+START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[bed_temperature_initial_layer_single]
 ```
+
+I reduced the code to a single line in the slicer profile, so start gcode is inside Macro.cfg (see next step)
 
 ## **STEP 2: NEW CODE FOR KLIPPER (Macro.cfg & printer.cfg)**
 
